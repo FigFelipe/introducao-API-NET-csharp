@@ -17,5 +17,16 @@ namespace WebApplicationNETCore.Controllers
 
             return Ok(obj);
         }
+
+        // Metodo que recebe um parâmetro
+        [HttpGet("Apresentar/{nome}")]
+        public IActionResult Apresentar(string nome)
+        {
+            var mensagem = $"Olá {nome}, seja bem-vindo";
+
+            // Retorna um objeto anônimo com a mensagem
+            return Ok(new {mensagem});
+        }
     }
+    
 }
