@@ -1,10 +1,10 @@
-# DIO - Introdução a criação de API com Entity Framework e ASP.NET C#
+# DIO - Introdução a criação de uma API Web com Entity Framework e ASP.NET Core
 
 ## Autor
 - [Felipe Figueiredo Bezerra](https://github.com/FigFelipe)
 
 ## Objetivo
-Criar um projeto WebApplicationNETCore do tipo API, utilizar os recursos disponíveis do EntityFramework para a integração com o banco de dados (Microsoft SQL Express) para realizações de operações CRUD.
+Criar um projeto API Web ASP.NET Core, utilizar os recursos disponíveis do EntityFramework para a integração com o banco de dados (Microsoft SQL Express) para realizações de operações CRUD.
 
 ## Ambiente de Desenvolvimento
 
@@ -34,7 +34,7 @@ Criar um projeto WebApplicationNETCore do tipo API, utilizar os recursos dispon�
 | Alterando o endpoint create         |
 
 ## Etapas
-1. No Visual Studio IDE, criar um projeto WebApplicationNETCore;
+1. No Visual Studio IDE, criar um projeto do tipo **API Web do ASP.NETCore**;
 2. Instalar (via NuGet) as dependências necessárias do EntityFramework:
 
   | Nome do Pacote                         |
