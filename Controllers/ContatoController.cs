@@ -51,6 +51,17 @@ namespace WebApplicationNETCore.Controllers
             return Ok(contato);
         }
 
+        // Read
+        [HttpGet("ObterPorNome")]
+        public IActionResult ObterContatoPorNome(string nome)
+        {
+            // Obtem diretamente do banco, o contato onde o nome seja igual ao do
+            // parametro 'nome' informado
+            var contatos = _context.Contatos.Where(x => x.Nome.Contains(nome));
+
+            return Ok(contatos);
+        }
+
         // Update
         [HttpPut("{id}")]
 
