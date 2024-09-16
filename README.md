@@ -86,4 +86,11 @@ dotnet ef database update
 
 ## EntityFramework - CRUD
 
+A tabela abaixo descreve os **Endpoints** desenvolvidos:
+
+| Controller             |CRUD |Endpoint |Verbo Http | Descrição |
+|------------------------|------|----------|----------|-----------|
+| Contato                | CREATE |/contato | POST | Insere um novo contato na tabela 'Contatos' do banco de dados |
+| Contato                | READ |/contato/{id} | GET | Através do parâmetro {id} é buscado um contato válido na tabela 'Contatos' do banco de dados |
+
 
