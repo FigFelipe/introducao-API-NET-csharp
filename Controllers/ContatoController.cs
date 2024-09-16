@@ -78,6 +78,8 @@ namespace WebApplicationNETCore.Controllers
 
                 // Inclui as novas informações no banco de dados
                 _context.Contatos.Update(contatoBanco);
+                
+                // Salva as alterações no db
                 _context.SaveChanges();
 
                 return Ok(contatoBanco);
@@ -85,6 +87,29 @@ namespace WebApplicationNETCore.Controllers
         }
 
         // Delete
+        [HttpDelete("{id}")]
+        public IActionResult DeletarPorId(int id)
+        {
+            // Busca o contato diretamente no db a partir do 'id'
+            var contatoBanco = _context.Contatos.Find(id);
+
+            if(contatoBanco == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                // Deletar somente um contato que exista no db
+                _context.Contatos.Remove(contatoBanco);
+
+                // Salva as alterações no db
+                _context.SaveChanges();
+
+                // Retorna 'sem-conteudo'
+                return NoContent();
+            }
+
+        }
 
     }
 }
