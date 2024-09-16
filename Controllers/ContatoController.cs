@@ -31,7 +31,11 @@ namespace WebApplicationNETCore.Controllers
             _context.Add(contato);
             _context.SaveChanges();
 
-            return Ok(contato);
+            // Retorna a url da contato criado
+            return CreatedAtAction(nameof(ObterContatoPorId), new {id = contato.Id}, contato);
+
+            // No Swagger Server Response, será retornado o endereço do contato criado
+            //location: https://localhost:7003/Contato/6 
         }
 
         // Read
