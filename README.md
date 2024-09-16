@@ -13,7 +13,7 @@ Criar um projeto WebApplicationNETCore do tipo API, utilizar os recursos dispon�
  - **Banco de Dados:** Microsoft SQL Express
  - **Framework:** Entity Framework
 
-## Capitulos
+## Capítulos
 
 | Nome                                |
 |-------------------------------------|
@@ -87,9 +87,11 @@ Caso ocorra erro na tentativa de conexão com o banco de dados, adicionar o par�
 
 A tabela abaixo descreve os **Endpoints** desenvolvidos:
 
-| Controller             |CRUD |Endpoint |Verbo Http | Descrição |
-|------------------------|------|----------|----------|-----------|
-| Contato                | CREATE |/contato | POST | Insere um novo contato na tabela 'Contatos' do banco de dados |
-| Contato                | READ |/contato/{id} | GET | Através do parâmetro {id} é buscado um contato válido na tabela 'Contatos' do banco de dados |
+| Controller             |CRUD    |Verbo Http |Request URL   | Descrição |
+|------------------------|--------|-----------|--------------|-----------|
+| Contato                | CREATE | POST      |/contato      | Insere um novo contato na tabela 'Contatos' do banco de dados |
+| Contato                | READ   | GET       |/contato/{id} | Obtém um contato existente através do parâmetro {id} da tabela 'Contatos' do banco de dados |
+| Contato                | UPDATE | PUT       |/contato/{id} | Atualiza um contato existente através do parâmetro {id} da tabela 'Contatos' do banco de dados |
+
 
 
