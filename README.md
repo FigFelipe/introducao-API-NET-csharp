@@ -6,33 +6,12 @@
 ## Objetivo
 Criar um projeto WebApplicationNETCore do tipo API, utilizar os recursos disponíveis do EntityFramework para a integração com o banco de dados (Microsoft SQL Express) para realizações de operações CRUD.
 
-## Etapas
-
-1. Criar um projeto WebApplicationNETCore
-2. Instalar (via NuGet) as dependências necessárias do EntityFramework:
-
-  | Nome do Pacote                         |
-  |----------------------------------------|
-  | EntityFramework                        |
-  | Microsoft.EntityFrameworkCore          |
-  | Microsoft.EntityFrameworkCore.Design   |
-  | Microsoft.EntityFrameworkCore.SqlServer|
-
-3. No arquivo 'appsettings.json', adicionar a seguinte connection string:
-
-  > **Connection String:**  "ConnectionStrings": {
-     "ConexaoPadrao": "Server=localhost\\sqlexpress; Initial Catalog=Agenda; Integrated Security=True"
-
-4. Realizar as 'Migrations'
-
-  > **Connection String:**  "ConnectionStrings": {
-     "ConexaoPadrao": "Server=localhost\\sqlexpress; Initial Catalog=Agenda; Integrated Security=True"
-
 ## Ambiente de Desenvolvimento
 
  - **IDE**: Visual Studio 22 (Community Edition)
  - **SDK:** .NET Core
- - **BD:** Microsoft SQL Express
+ - **Banco de Dados:** Microsoft SQL Express
+ - **Framework:** Entity Framework
 
 ## Capitulos
 
@@ -53,3 +32,58 @@ Criar um projeto WebApplicationNETCore do tipo API, utilizar os recursos dispon�
 | Entendendo os verbos HTTP           |
 | Recapitulando a construção da API   |
 | Alterando o endpoint create         |
+
+## Etapas
+1. No Visual Studio IDE, criar um projeto WebApplicationNETCore;
+2. Instalar (via NuGet) as dependências necessárias do EntityFramework:
+
+  | Nome do Pacote                         |
+  |----------------------------------------|
+  | EntityFramework                        |
+  | Microsoft.EntityFrameworkCore          |
+  | Microsoft.EntityFrameworkCore.Design   |
+  | Microsoft.EntityFrameworkCore.SqlServer|
+
+3. No arquivo 'appsettings.Development.json' (ambiente de testes), adicionar a seguinte connection string:
+```
+"ConnectionStrings": {
+     "ConexaoPadrao": "Server=localhost\\sqlexpress; Initial Catalog=Agenda; Integrated Security=True"
+}
+```
+
+4. Através do EntityFramework, criar um tabela 'Contatos' através do comando de 'migrations':
+```
+dotnet -ef migrations add CriacaoTabelaContato
+```
+
+**Observação:**
+
+Se o comando no terminal do Visual Studio não for reconhecido, então instalar o EntityFramework como ferramenta global. Utilizar o comando abaixo:
+```
+dotnet tool install --global dotnet-ef
+```
+
+5. Aplicar a 'migration' ao banco de dados (Microsoft SQL Express), utilizar o seguinte comando no terminal:
+```   
+dotnet ef database update
+```
+
+6. Caso ocorra erro na tentativa de conexão com o banco de dados, adicionar o parâmetro **'TrustServerCertificate=True'**:
+```
+"ConnectionStrings": {
+    "ConexaoPadrao": "Server = localhost\\sqlexpress; Initial Catalog=Agenda; Integrated Security=True; TrustServerCertificate=True "
+  }
+```
+
+## Banco de Dados - Propriedades da Conexão
+
+| Propriedades da Conexão             | Valor |
+|-------------------------------------|-------|
+| Tipo de Servidor                    | Mecanismo de Banco de Dados |
+| Nome do Servidor                    | localhost\SQLEXPRESS |
+| Autenticação                        | Autenticação do Windows |
+| Criptografia                        | Opcional |
+
+## EntityFramework - CRUD
+
+
