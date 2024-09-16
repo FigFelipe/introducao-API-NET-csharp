@@ -118,7 +118,7 @@ builder.Services.AddDbContext<AgendaContext>(options =>
 ### Realizando as 'Migrations'
 7. Via terminal, espelhar as classes do código no banco de dados através da 'Migrations'. Ou seja, o EntityFramework irá criar a tabela automaticamente.
 ```
-dotnet -ef migrations add CriacaoTabelaContato
+dotnet-ef migrations add CriacaoTabelaContato
 ```
 
 > **Observação:**
