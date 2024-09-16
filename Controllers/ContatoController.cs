@@ -35,6 +35,22 @@ namespace WebApplicationNETCore.Controllers
         }
 
         // Read
+        [HttpGet("{id}")] // Recebe o parametro 'id'
+        public IActionResult ObterContatoPorId(int id) // Recebe o parametro do verbo HttpGet 'id'
+        {
+            // 'Contatos' é o db set (conjunto)
+            // Busca o contato no db set
+            var contato = _context.Contatos.Find(id);
+
+            // Se o contato for inválido
+            if(contato == null)
+            {
+                return NotFound(); // Retornar 'NotFound()'
+            }
+
+            return Ok(contato);
+        }
+
         // Update
         // Delete
 
