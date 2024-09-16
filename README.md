@@ -56,8 +56,7 @@ Criar um projeto WebApplicationNETCore do tipo API, utilizar os recursos dispon�
 dotnet -ef migrations add CriacaoTabelaContato
 ```
 
-**Observação:**
-
+> **Observação:**
 Se o comando no terminal do Visual Studio não for reconhecido, então instalar o EntityFramework como ferramenta global. Utilizar o comando abaixo:
 ```
 dotnet tool install --global dotnet-ef
@@ -67,8 +66,8 @@ dotnet tool install --global dotnet-ef
 ```   
 dotnet ef database update
 ```
-
-6. Caso ocorra erro na tentativa de conexão com o banco de dados, adicionar o parâmetro **'TrustServerCertificate=True'**:
+> **Observação:**
+Caso ocorra erro na tentativa de conexão com o banco de dados, adicionar o parâmetro **'TrustServerCertificate=True'**:
 ```
 "ConnectionStrings": {
     "ConexaoPadrao": "Server = localhost\\sqlexpress; Initial Catalog=Agenda; Integrated Security=True; TrustServerCertificate=True "
