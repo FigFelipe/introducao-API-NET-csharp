@@ -43,7 +43,7 @@ namespace WebApplicationNETCore.Controllers
             var contato = _context.Contatos.Find(id);
 
             // Se o contato for inválido
-            if(contato == null)
+            if (contato == null)
             {
                 return NotFound(); // Retornar 'NotFound()'
             }
@@ -52,6 +52,38 @@ namespace WebApplicationNETCore.Controllers
         }
 
         // Update
+        [HttpPut("{id}")]
+
+        // Parametros
+        // id, é o id á ser encontrado no db
+        // contato, é o json com as informações do contato
+        public IActionResult AtualizarContatoPorId(int id, Contato contato)
+        {
+            // Busca o contato pelo 'id' diretamente do banco de dados
+            var contatoBanco = _context.Contatos.Find(id);
+
+            if(contatoBanco == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                // Atribuindo um novo nome, telefone e propriedade 'ativo' ao contato
+                // Onde:
+                // contatoBanco, é o contato existente no db
+                // contato.Nome, é o corpo da requisicao (json)
+                contatoBanco.Nome = contato.Nome;
+                contatoBanco.Telefone = contato.Telefone;
+                contato.Ativo = contato.Ativo;
+
+                // Inclui as novas informações no banco de dados
+                _context.Contatos.Update(contatoBanco);
+                _context.SaveChanges();
+
+                return Ok(contatoBanco);
+            }
+        }
+
         // Delete
 
     }
