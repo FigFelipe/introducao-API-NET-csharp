@@ -92,6 +92,8 @@ A tabela abaixo descreve os **Endpoints** desenvolvidos:
 | Contato                | CREATE | POST      |/contato      | Insere um novo contato na tabela 'Contatos' do banco de dados |
 | Contato                | READ   | GET       |/contato/{id} | Obtém um contato existente através do parâmetro {id} da tabela 'Contatos' do banco de dados |
 | Contato                | UPDATE | PUT       |/contato/{id} | Atualiza um contato existente através do parâmetro {id} da tabela 'Contatos' do banco de dados |
+| Contato                | DELETE | DELETE    |/contato/{id} | Deleta um contato existente através do parâmetro {id} da tabela 'Contatos' do banco de dados |
+
 
 
 
