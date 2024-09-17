@@ -35,12 +35,12 @@ Criar um projeto de **Agenda de Contatos** (API Web ASP.NET Core), utilizando os
 
 ## Etapas
 
-### Criando o tipo de Projeto
+### 1. Criando o tipo de Projeto
 
-1. No Visual Studio IDE, criar um projeto do tipo **API Web do ASP.NETCore**.
+No Visual Studio IDE, criar um projeto do tipo **API Web do ASP.NETCore**.
 
-### Instalando os pacotes necessários
-2. Instalar (via NuGet) as dependências necessárias do EntityFramework:
+### 2. Instalando os pacotes necessários
+Instalar (via NuGet) as dependências necessárias do EntityFramework:
 
   | Nome do Pacote                         |
   |----------------------------------------|
@@ -50,8 +50,8 @@ Criar um projeto de **Agenda de Contatos** (API Web ASP.NET Core), utilizando os
   | Microsoft.EntityFrameworkCore.SqlServer|
 
  
-### Configurando a 'ConnectionString'
-3. No arquivo 'appsettings.Development.json' (ambiente de testes), adicionar a seguinte connection string:
+### 3. Configurando a 'ConnectionString'
+No arquivo 'appsettings.Development.json' (ambiente de testes), adicionar a seguinte connection string:
 ``` C#
 "ConnectionStrings": {
      "ConexaoPadrao": "Server=localhost\\sqlexpress; Initial Catalog=Agenda; Integrated Security=True"
@@ -65,8 +65,8 @@ Criar um projeto de **Agenda de Contatos** (API Web ASP.NET Core), utilizando os
 | Autenticação                        | Autenticação do Windows |
 | Criptografia                        | Opcional |
 
-### Criando uma Entidade 'Contato'
-4. Criar uma pasta 'Entities' e adicionar a classe 'Contato'. A entidade é uma tabela do banco de dados.
+### 4. Criando uma Entidade 'Contato'
+Criar uma pasta 'Entities' e adicionar a classe 'Contato'. A entidade é uma tabela do banco de dados.
 ``` C#
 namespace WebApplicationNETCore.Entities
 {
@@ -82,8 +82,8 @@ namespace WebApplicationNETCore.Entities
 }
 ```
 
-### Criando um 'Context'
-5. Criar uma pasta 'Context' e adicionar a classe 'AgendaContext'. É uma classe que acessa o banco de dados (deve ser herdada de 'DbContext').
+### 5. Criando um 'Context'
+Criar uma pasta 'Context' e adicionar a classe 'AgendaContext'. É uma classe que acessa o banco de dados (deve ser herdada de 'DbContext').
 ``` C#
 using Microsoft.EntityFrameworkCore;
 using WebApplicationNETCore.Entities;
@@ -107,16 +107,16 @@ namespace WebApplicationNETCore.Context
 }
 ```
 
-### Vinculando a 'ConnectionString' á classe 'Program'
-6. Na classe 'Program', vincular a 'ConnectionString' para a 'ConexãoPadrao'.
+### 6. Vinculando a 'ConnectionString' á classe 'Program'
+Na classe 'Program', vincular a 'ConnectionString' para a 'ConexãoPadrao'.
 ``` C#
 // Add services to the container.
 builder.Services.AddDbContext<AgendaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 ```
 
-### Realizando as 'Migrations'
-7. Via terminal, espelhar as classes do código no banco de dados através da 'Migrations'. Ou seja, o EntityFramework irá criar a tabela automaticamente.
+### 7. Realizando as 'Migrations'
+Via terminal, espelhar as classes do código no banco de dados através da 'Migrations'. Ou seja, o EntityFramework irá criar a tabela automaticamente.
 ``` Powershell
 dotnet-ef migrations add CriacaoTabelaContato
 ```
@@ -127,7 +127,7 @@ Se o comando no terminal do Visual Studio não for reconhecido, então instalar 
 dotnet tool install --global dotnet-ef
 ```
 
-8. Ao finalizar as 'migrations', será gerado automaticamente a seguinte classe 'CriacaoTabelaContato'. É o schema de criação da tabela no banco de dados (não deve ser modificado):
+Ao finalizar as 'migrations', será gerado automaticamente a seguinte classe 'CriacaoTabelaContato'. É o schema de criação da tabela no banco de dados (não deve ser modificado):
 ``` C#
 using Microsoft.EntityFrameworkCore.Migrations;
 
@@ -167,8 +167,8 @@ namespace WebApplicationNETCore.Migrations
 }
 
 ```
-### Aplicando as 'Migrations'
-9. Aplicar a 'migration' ao banco de dados (Microsoft SQL Express). É o comando que constroí a tabela no banco de dados. Utilizar o seguinte comando no terminal:
+### 9. Aplicando as 'Migrations'
+Aplicar a 'migration' ao banco de dados (Microsoft SQL Express). É o comando que constroí a tabela no banco de dados. Utilizar o seguinte comando no terminal:
 ``` Powershell
 dotnet ef database update
 ```
@@ -180,8 +180,8 @@ Caso ocorra erro na tentativa de conexão com o banco de dados, adicionar o par�
   }
 ```
 
-### Criando um 'Controller'
-10. Adicionar uma pasta chamada de 'Controller' e uma classe com o nome de 'ContatoController'. É o ponto de entrada de acesso aos métodos (Endpoints).
+### 10. Criando um 'Controller'
+Adicionar uma pasta chamada de 'Controller' e uma classe com o nome de 'ContatoController'. É o ponto de entrada de acesso aos métodos (Endpoints).
 >**Deve obrigatoriamente ser herdada de 'ControllerBase'.**
 
 >**Deve possuir os atributos [APIController] e [Route("[controller]")].**
